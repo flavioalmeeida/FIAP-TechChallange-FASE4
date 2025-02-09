@@ -9,7 +9,7 @@ def gerar_df():
         io=url, 
         engine="openpyxl",
         sheet_name="Sheet1",
-        usecols="A:Q",
+        usecols="A:C",
         nrows=11345
     )
     return df
