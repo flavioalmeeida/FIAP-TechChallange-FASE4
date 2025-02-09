@@ -2,23 +2,17 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-import requests
-from io import BytesIO
-
 @st.cache_data
 def gerar_df():
     url = "https://raw.githubusercontent.com/flavioalmeeida/FIAP-TechChallange-FASE4/3a488bc28d967d9c97cc47244fb39f63d38944ae/DADOS_PETROLEO.xlsx"
-    
-    # Baixar o arquivo diretamente da URL
-    response = requests.get(url)
-    
-    # Verifique se o download foi bem-sucedido
-    if response.status_code == 200:
-        # Abrir o conteúdo da resposta como um arquivo Excel
-        df = pd.read_excel(BytesIO(response.content), engine="openpyxl", sheet_name="Sheet1", usecols="A:Q", nrows=11345)
-        return df
-    else:
-        raise ValueError(f"Erro ao acessar o arquivo: {response.status_code}")
+    df = pd.read_excel(
+        io=url, 
+        engine="openpyxl",
+        sheet_name="Sheet1",
+        usecols="A:Q",
+        nrows=11345
+    )
+    return df
 
 df = gerar_df()
 
