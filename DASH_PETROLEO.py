@@ -7,7 +7,7 @@ from io import BytesIO
 
 @st.cache_data
 def gerar_df():
-    url = "https://raw.githubusercontent.com/flavioalmeeida/TechChallangeFase4/a9238b11421980cd2f473c4d78a21342ffecc281/DADOS_PETROLEO.xlsx"
+    url = "https://raw.githubusercontent.com/flavioalmeeida/FIAP-TechChallange-FASE4/3a488bc28d967d9c97cc47244fb39f63d38944ae/DADOS_PETROLEO.xlsx"
     
     # Baixar o arquivo diretamente da URL
     response = requests.get(url)
